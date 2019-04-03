@@ -27,7 +27,7 @@ VOLUME /etc/bacula
 VOLUME /var/lib/bacula
 VOLUME /etc/dhparam
 
-COPY create_dhparam.sh first_run.sh mail_wrapper.sh entrypoint.sh update_database.sh make_mysql_tables.sh grant_mysql_privileges.sh /usr/local/bin/
+COPY create_dhparam.sh first_run.sh mail_wrapper.sh entrypoint.sh update_database.sh make_mysql_tables.sh grant_mysql_privileges.sh update_mysql_tables.sh /usr/local/bin/
 
 RUN chmod +x /usr/local/bin/*
 

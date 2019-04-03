@@ -11,7 +11,7 @@ log() {
 }
 
 #cd /usr/libexec/bacula/
-cd /usr/share/bacula-director/
+#cd /usr/share/bacula-director/
 
 MYSQL_OPTS="--host=${DB_HOST} --user=bacula --password=${BACULA_DB_PASSWORD} --database=bacula"
 

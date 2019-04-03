@@ -11,11 +11,11 @@ log() {
 }
 
 #cd /usr/libexec/bacula/
-cd /usr/share/bacula-director/
+#cd /usr/share/bacula-director/
 
-PSQL_OPTS="-h ${DB_HOST} -U postgres"
+MYSQL_OPTS="--host=${DB_HOST} --user=bacula --password=${BACULA_DB_PASSWORD} --database=bacula"
 
-./update_mysql_tables ${PSQL_OPTS} || die "Failed to update database"
-./grant_mysql_privileges ${PSQL_OPTS} || die "Failed to grant privileges"
+/usr/local/bin/update_mysql_tables.sh ${MYSQL_OPTS} || die "Failed to update database"
+/usr/local/bin/grant_mysql_privileges.sh ${MYSQL_OPTS} || die "Failed to grant privileges"
 
 log "Database update completed without errors"

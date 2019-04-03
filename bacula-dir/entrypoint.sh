@@ -13,6 +13,16 @@ log_error () {
   echo >&2 "[`date +'%Y-%m-%d %T'`] $@"
 }
 
+# test variable existence
+if [ -z "$DB_HOST" ]; then
+  echo 'You must set variable DB_HOST'
+  if [ -z "$BACULA_BD_PASSWORD" ]; then
+    echo 'You must set variable BACULA_BD_PASSWORD'
+    exit 1
+  fi
+  exit 1
+fi
+
 BACULA_DIR_CONFIG="/etc/bacula/bacula-dir.conf"
 BACULA_DIR_PID_FILE="/var/run/bacula-dir.9101.pid"
 BACULA_DIR_COMMAND="/usr/sbin/bacula-dir -c ${BACULA_DIR_CONFIG}"
